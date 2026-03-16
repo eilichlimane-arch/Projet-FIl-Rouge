@@ -2,18 +2,458 @@
 <html lang="fr">
 
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- =========================
+         META
+    ========================= -->
+
+    <!-- encodage caractères -->
     <meta charset="UTF-8">
+
+    <!-- responsive mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        Titre
-    </title>
+
+    <!-- TITRE SEO -->
+    <title>Blackcraft Tattoo</title>
+
+    <!-- description référencement -->
+    <meta name="description" content="Blackcraft Tattoo Studio">
+
+    <!-- =========================
+         BIBLIOTHEQUE ICONES
+         FontAwesome pour les réseaux
+    ========================= -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- =========================
+         FEUILLE CSS PRINCIPALE
+    ========================= -->
+
+    <link rel="stylesheet" href="Style.css">
+
 </head>
 
+
 <body>
-    <section>
-        Test
-    </section>
+
+
+    <!-- =================================================
+HEADER / NAVIGATION
+================================================= -->
+
+    <header class="site-header">
+
+<nav class="main-nav">
+
+<a href="#">HOME</a>
+<a href="#">GALERY</a>
+<a href="#">ARTISTS</a>
+<a href="#">CONTACT</a>
+<a 
+
+</nav>
+
+    </header>
+
+
+
+    <main>
+
+
+
+        <!-- =================================================
+HERO
+image principale avec effet parallax CSS
+================================================= -->
+
+        <section class="hero" id="hero">
+
+            <!-- image hero -->
+
+
+
+            <div class="hero-overlay">
+
+                <!-- titre vertical décoratif -->
+                <div class="hero-vertical-brand fade-up fade-delay-1">
+
+                    BLACKCRAFT
+
+                </div>
+
+
+                <!-- sous titre central -->
+<div class="hero-center-subtitle fade-up fade-delay-2">
+    BLACKWORK TATTOO
+</div>
+
+<div class="scroll-indicator">
+    <span></span>
+</div>
+
+
+                <!-- bloc texte principal -->
+
+                <div class="hero-intro">
+
+                    <!-- titre animé -->
+                    <h1 class="fade-up fade-delay-3">
+
+                        <span class="accent">THE ART</span> OF <strong>BLACK</strong>
+
+                    </h1>
+
+
+                    <!-- ligne décorative -->
+                    <div class="hero-line fade-up fade-delay-4"></div>
+
+
+                    <!-- texte -->
+                    <p class="fade-up fade-delay-4">
+
+                        Chez Blackcraft Studio, nous explorons la profondeur du blackwork.
+                        Du remplissage noir intégral aux compositions graphiques puissantes,
+                        chaque tatouage est pensé comme une pièce durable.
+
+                    </p>
+
+
+                    <p class="fade-up fade-delay-4">
+
+                        Nous travaillons le noir comme un langage à part entière.
+
+                    </p>
+
+
+                    <!-- bouton -->
+                    <a href="#gallery" class="hero-btn fade-up fade-delay-4">
+
+                        Voir nos réalisations
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+GALERIE
+composition éditoriale avec CSS GRID
+================================================= -->
+
+        <section class="recent-work" id="gallery">
+
+
+            <!--
+Chaque image peut aussi recevoir
+une animation d'apparition.
+-->
+
+            <div class="gallery-grid">
+
+                <img src="images/1galery.jpeg" class="img-large fade-up" alt="">
+
+                <img src="images/5galery.jpeg" class="fade-up" alt="">
+
+                <img src="images/3galery.jpeg" class="fade-up" alt="">
+
+                <img src="images/4galery.jpg" class="img-vertical fade-up" alt="">
+
+                <img src="images/2galery.jpeg" class="fade-up" alt="">
+
+                <img src="images/7galery.jpeg" class="img-horizontal fade-up" alt="">
+
+                <img src="images/6galery.jpeg" class="fade-up" alt="">
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+ARTISTS
+================================================= -->
+
+        <section class="artists-section" id="artists">
+
+            <h2 class="fade-up">
+
+                ARTISTS <span>DUO</span>
+
+            </h2>
+
+
+            <div class="artists-wrapper">
+
+                <img src="images/artists.jpg" alt="Artists duo">
+
+
+                <!-- artiste gauche -->
+                <div class="artist-panel artist-left">
+
+                    <h3 class="fade-up">
+
+                        ANNAH CAMPOSA
+
+                    </h3>
+
+
+                    <div class="artist-line fade-up"></div>
+
+
+                    <h4 class="fade-up">
+
+                        BLACK OUT / GRAPHIC
+
+                    </h4>
+
+
+                    <p class="fade-up">
+
+                        Le blackwork graphique se construit autour de lignes fortes
+                        et de formes contrastées.
+
+                    </p>
+
+
+                    <a href="#" class="fade-up">
+
+                        Prendre un rdv
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- artiste droite -->
+                <div class="artist-panel artist-right">
+
+                    <h3 class="fade-up">
+
+                        NEOH HOGOWSKI
+
+                    </h3>
+
+
+                    <div class="artist-line fade-up"></div>
+
+
+                    <h4 class="fade-up">
+
+                        BLACK OUT / SOLID FILL
+
+                    </h4>
+
+
+                    <p class="fade-up">
+
+                        Le blackout repose sur la maîtrise du noir saturé
+                        et du remplissage dense.
+
+                    </p>
+
+
+                    <a href="#" class="fade-up">
+
+                        Prendre un rdv
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+BLOC TRANSITION
+================================================= -->
+
+        <section class="statement">
+
+            <h2 class="fade-up">
+
+                BLACK IS A <span>CANVAS</span>
+
+            </h2>
+
+
+            <div class="statement-line fade-up"></div>
+
+
+            <p class="fade-up">
+
+                Chaque tatouage est une composition construite
+                autour du contraste et de la profondeur du noir.
+
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+STUDIO
+================================================= -->
+
+        <section class="studio">
+
+            <img src="images/studio.jpg" alt="Blackcraft tattoo studio">
+
+
+            <div class="studio-content">
+
+                <h2 class="fade-up fade-delay-1">
+
+                    THE <span>STUDIO</span>
+
+                </h2>
+
+
+                <div class="studio-line fade-up fade-delay-2"></div>
+
+
+                <p class="fade-up fade-delay-3">
+
+                    Blackcraft Studio est un espace dédié au blackwork
+                    et à l’exploration graphique du tatouage.
+
+                </p>
+
+
+                <a href="#" class="studio-btn fade-up fade-delay-4">
+
+                    Prendre rendez-vous
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+RESEAUX
+================================================= -->
+
+        <section class="social">
+
+            <h2 class="fade-up">
+
+                FOLLOW <span>THE INK</span>
+
+            </h2>
+
+
+            <div class="social-grid">
+
+                <img src="images/1galery.jpeg" class="fade-up" alt="">
+                <img src="images/2galery.jpeg" class="fade-up" alt="">
+                <img src="images/3galery.jpeg" class="fade-up" alt="">
+                <img src="images/4galery.jpeg" class="fade-up" alt="">
+
+                <img src="images/2galery.jpeg" class="fade-up" alt="">
+                <img src="images/3galery.jpeg" class="fade-up" alt="">
+                <img src="images/4galery.jpeg" class="fade-up" alt="">
+                <img src="images/1galery.jpeg" class="fade-up" alt="">
+
+            </div>
+
+
+
+            <div class="social-cta">
+
+                <p class="social-handle fade-up">
+
+                    @blackcraftstudio
+
+                </p>
+
+
+                <div class="social-icons fade-up">
+
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+
+                </div>
+
+
+                <a href="#" class="social-btn fade-up">
+
+                    FOLLOW US
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+CONTACT
+================================================= -->
+
+        <section class="contact">
+
+            <div class="contact-container">
+
+
+                <div class="contact-form-block">
+
+                    <h2 class="fade-up">
+
+                        BOOK YOUR SESSION
+
+                    </h2>
+
+
+                    <form class="contact-form">
+
+                        <input type="text" placeholder="Your name" required class="fade-up">
+
+                        <input type="email" placeholder="Email" required class="fade-up">
+
+                        <textarea placeholder="Tell us about your tattoo idea" class="fade-up"></textarea>
+
+                        <button type="submit" class="fade-up">
+
+                            SEND REQUEST
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+
+
+                <div class="contact-image fade-up">
+
+                    <img src="images/contact.jpg" alt="Tattoo process">
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
 </body>
 
 </html>
