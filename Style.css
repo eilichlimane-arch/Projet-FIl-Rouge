@@ -31,18 +31,16 @@ html {
 }
 
 body {
-
     background: #000;
     color: #f2f2f2;
-
     font-family: "SourceSansPro", Arial, sans-serif;
-
     overflow-x: hidden;
-
 }
 
 
-/* images */
+/* =================================================
+   IMAGES / LIENS
+   ================================================= */
 
 img {
     display: block;
@@ -52,6 +50,77 @@ img {
 a {
     text-decoration: none;
     color: inherit;
+}
+
+
+/* =================================================
+   HEADER / NAVIGATION
+   ================================================= */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    padding: 28px 48px;
+
+    z-index: 9999;
+
+    background: transparent;
+    /* 👈 IMPORTANT */
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 55px;
+}
+
+.main-nav a {
+    color: #f2f2f2;
+    font-size: 0.9rem;
+    font-weight: 200;
+    letter-spacing: 0.45rem;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease;
+}
+
+.main-nav a:hover {
+    opacity: 0.65;
+}
+
+main {
+    padding-top: 80px;
+}
+
+main {
+    min-height: 200vh;
+}
+
+.hero {
+    margin-top: -80px;
+}
+
+/* =========================
+   FIX SCROLL (IMPORTANT)
+========================= */
+
+html,
+body {
+    height: auto !important;
+    overflow-y: auto !important;
+    overflow-x: hidden;
+}
+
+/* =================================================
+   MAIN
+   évite que le contenu passe sous le menu fixe
+   ================================================= */
+
+main {
+    padding-top: 80px;
 }
 
 
@@ -76,16 +145,15 @@ a {
 /* =================================================
    ANIMATION APPARITION
    ================================================= */
-
-/* classe utilisée dans le HTML */
 .fade-up {
-
     opacity: 0;
-
     transform: translateY(40px);
+    transition: 0.8s ease;
+}
 
-    animation: fadeUp 1s ease forwards;
-
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* animation */
@@ -123,26 +191,179 @@ a {
     animation-delay: 0.8s;
 }
 
+/* ========================================
+   CURSOR INK 
+=========================================== */
+/* acher le curseur normal */
 
-
-/* =================================================
-   HEADER
-   ================================================= */
-
-.site-header {
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-
-    padding: 28px 48px;
-
-    z-index: 30;
-
+body {
+    cursor: none;
 }
+
+/* point principal */
+.cursor-dot {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: #b58a62;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999999; /* 🔥 IMPORTANT */
+}
+
+/* trainée */
+.cursor-trail {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: rgba(181, 138, 98, 0.15);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999998;
+}
+
+.ink {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    background: rgba(181, 138, 98, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999999;
+    transform: translate(-50%, -50%) scale(1);
+    animation: inkSpread 0.6s ease-out forwards;
+}
+
+@keyframes inkSpread {
+    0% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(12);
+    }
+}
+/* =========================
+ISOLATION BOOTSTRAP
+========================= */
+
+.reviews-bootstrap {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* annule les effets bootstrap UNIQUEMENT ici */
+
+.reviews-bootstrap .row {
+    margin: 0;
+}
+
+.reviews-bootstrap [class*="col-"] {
+    padding: 20px;
+}
+
+
+/* =========================
+AVIS
+========================= */
+
+.reviews {
+    padding: 120px 0;
+    text-align: center;
+}
+
+.review-card {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 30px;
+    height: 100%;
+    transition: 0.3s;
+}
+
+.review-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-6px);
+}
+
+.review-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(4px);
+}
+
+.review-card:hover {
+    box-shadow: 0 0 20px rgba(181, 138, 98, 0.2);
+}
+
+/* =========================
+REVIEWS UPGRADE
+========================= */
+
+.review-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 40px 30px;
+    height: 100%;
+    position: relative;
+
+    transition: 0.3s;
+}
+
+/* GUILLEMETS */
+
+.quote {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+/* TEXTE */
+
+.review-card p {
+    color: var(--soft-white);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+/* USER */
+
+.review-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* AVATAR */
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 0.8rem;
+}
+
+/* NOM */
+
+.review-user span {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+}
+
+/* HOVER */
+
+.review-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-6px);
+    box-shadow: 0 0 25px rgba(181, 138, 98, 0.15);
+}
+
 
 
 /* navigation */
@@ -270,6 +491,22 @@ a {
     z-index: 10;
 }
 
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 1px solid #c59d5f;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 0.2em;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #c59d5f;
+    color: black;
+}
+
 /* titre vertical */
 .hero-vertical-brand {
     position: absolute;
@@ -288,7 +525,7 @@ a {
 
     position: absolute;
 
-    top: 45%;
+    top: 55%;
     left: 0;
     width: 100%;
 
@@ -314,7 +551,7 @@ a {
     width: 52%;
 }
 
-/* titre */
+/* titre THE ART OF BLACK */
 .hero-intro h1 {
     font-size: 2rem;
     letter-spacing: 0.22em;
@@ -322,6 +559,10 @@ a {
     margin-bottom: 8px;
     text-transform: uppercase;
 }
+.hero-intro {
+    bottom: 10%;
+}
+
 
 .hero-intro .accent {
     color: var(--gold);
@@ -431,6 +672,270 @@ a {
 
 
 /* =================================================
+AVIS
+================================================= */
+
+.reviews {
+    padding: 160px 0;
+    text-align: center;
+}
+
+/* =========================
+TITRE
+========================= */
+
+.reviews h2 {
+    font-size: 2.2rem;
+    letter-spacing: 0.3em;
+    margin-bottom: 100px;
+}
+
+.reviews h2 span {
+    color: var(--gold);
+}
+
+/* =================================================
+SLIDER
+================================================= */
+
+.reviews-slider {
+    overflow: hidden;
+    width: 100%;
+}
+
+/* TRACK (éléments qui défilent) */
+.reviews-track {
+    display: flex;
+    gap: 50px;
+
+    animation: scrollReviews 25s linear infinite;
+}
+
+/* Pause au hover (effet premium) */
+.reviews-track:hover {
+    animation-play-state: paused;
+}
+
+/* =================================================
+CARDS
+================================================= */
+
+.review-card {
+    min-width: 350px;
+
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    padding: 50px 40px;
+    text-align: left;
+
+    transition: 0.3s;
+}
+
+/* Hover */
+.review-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-6px);
+    box-shadow: 0 0 25px rgba(181, 138, 98, 0.15);
+}
+
+/* =========================
+QUOTE ICON
+========================= */
+
+.quote {
+    color: var(--gold);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* =========================
+TEXTE
+========================= */
+
+.review-card p {
+    color: var(--soft-white);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+/* =================================================
+USER
+================================================= */
+
+.review-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Avatar */
+.avatar {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--gold);
+    font-size: 0.8rem;
+}
+
+/* Nom */
+.review-user span {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+}
+
+/* =================================================
+ANIMATION
+================================================= */
+
+@keyframes scrollReviews {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* =================================================
+RESPONSIVE
+================================================= */
+
+@media (max-width: 768px) {
+
+    .reviews {
+        padding: 100px 20px;
+    }
+
+    .reviews h2 {
+        font-size: 1.6rem;
+        margin-bottom: 60px;
+    }
+
+    .reviews-track {
+        gap: 30px;
+        animation: scrollReviews 40s linear infinite;
+    }
+
+    .review-card {
+        min-width: 280px;
+        padding: 40px 25px;
+    }
+
+}
+
+/* =========================
+BOOTSTRAP FIX LOCAL
+========================= */
+
+.reviews-bootstrap .row {
+    display: flex;
+    gap: 30px;
+}
+
+.reviews-bootstrap .col-md-4 {
+    flex: 1;
+}
+
+/* =========================
+CARD
+========================= */
+
+.review-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 40px 30px;
+    height: 100%;
+    transition: 0.3s;
+    text-align: left;
+}
+
+.quote {
+    color: var(--gold);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.review-card p {
+    color: var(--soft-white);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+/* =========================
+USER
+========================= */
+
+.review-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 0.8rem;
+}
+
+.review-user span {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+}
+
+/* =========================
+HOVER
+========================= */
+
+.review-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(181, 138, 98, 0.15);
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media (max-width: 768px) {
+    .reviews-bootstrap .row {
+        flex-direction: column;
+    }
+}
+
+/* =========================
+UNIFORMISER LES CARDS
+========================= */
+
+.review-card {
+    min-width: 350px;
+    height: 260px;
+    /* hauteur fixe */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
+
+
+/* ================================================================
    ARTISTS
    ================================================= */
 
@@ -547,18 +1052,22 @@ a {
 }
 
 
-/* bouton */
+.artist-panel {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
 
-.artist-panel a {
+.artist-panel:hover {
+    transform: scale(1.03);
+}
 
-    display: inline-block;
-
-    border: 1px solid rgba(255, 255, 255, 0.25);
-
-    padding: 12px 26px;
-
-    transition: 0.3s;
-
+.artist-panel:hover h3,
+.artist-panel:hover h4,
+.artist-panel:hover p {
+    opacity: 0.9;
 }
 
 .artist-panel a:hover {
@@ -577,7 +1086,7 @@ a {
 
 .statement {
 
-    padding: 160px 0;
+    padding: 200px 0 300px;
 
     text-align: center;
 
@@ -613,6 +1122,10 @@ a {
 /* =================================================
    STUDIO
    ================================================= */
+
+   #contact {
+    scroll-margin-top: 120px;
+}
 
 .studio {
 
@@ -801,6 +1314,18 @@ a {
 
 }
 
+/* espaces # et icones */
+
+.social-handle {
+    margin-bottom: 25px;
+    /* espace entre @ et les icônes */
+    display: block;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
 
 /* icones */
 
@@ -868,6 +1393,70 @@ a {
 
     color: var(--gold);
 
+}
+
+
+
+/* =================================================
+TRANSITION IMAGE
+================================================= */
+
+.interlude {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* image */
+
+.interlude img {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter: brightness(0.75);
+}
+
+/* overlay sombre subtil */
+
+.interlude-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.4),
+        rgba(0,0,0,0.7)
+    );
+}
+
+/* contenu */
+
+.interlude-content {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    text-align: center;
+}
+
+/* texte */
+
+.interlude-content p {
+    font-size: 1.4rem;
+    letter-spacing: 0.35em;
+    color: white;
+    font-weight: 200;
+}
+
+.interlude-content span {
+    color: var(--gold);
 }
 
 
@@ -1028,7 +1617,7 @@ a {
 }
 
 /* =================================
-   SCROLL INDICATOR
+   FLECHE
 ================================= */
 
 .scroll-indicator {
@@ -1057,7 +1646,7 @@ a {
 
     position: absolute;
     left: 50%;
-    top: 48%;
+    top: 60%;
 
     transform: translateX(-50%);
 
@@ -1114,61 +1703,86 @@ a {
 
 
 
-/* ==================================================================================================
-   PAGE GALERY
-========================= */
+/* =================================================
+   PAGE GALERY - HOVER PREMIUM
+================================================= */
 
-.gallery-page{
-
-padding-top:220px;
-padding-bottom:120px;
-padding-left:10%;
-padding-right:10%;
-
-background:#000;
-
-}
-//* =================================================
-   PAGE GALERY
-   ================================================= */
-
-/* conteneur principal de la page */
-
-.gallery-page{
-
-    padding-top:220px;   /* espace noir sous le menu */
-    padding-bottom:120px;
-
-    padding-left:10%;
-    padding-right:10%;
-
-    background:#000;
-
+/* conteneur image */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
 }
 
+/* image */
+.gallery-item img {
+    position: relative;
+    z-index: 1;
+}
+
+/* overlay sombre */
+.gallery-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8));
+
+    opacity: 0;
+    transition: 0.4s;
+
+    z-index: 2;
+}
+
+/* apparition */
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+/* texte au-dessus */
+.gallery-hover {
+    z-index: 3;
+}
 
 /* =================================================
    TITRE PAGE
    ================================================= */
 
-.gallery-title{
+.gallery-title {
 
-    font-size:2.2rem;
+    font-size: 2.2rem;
 
-    letter-spacing:0.35em;
+    letter-spacing: 0.35em;
 
-    margin-bottom:80px;
+    margin-bottom: 80px;
 
-    text-align:center;
+    text-align: center;
 
 }
 
 /* mot doré */
 
-.gallery-title span{
+.gallery-title span {
 
-    color:var(--gold);
+    color: var(--gold);
 
+}
+
+/* ANIMATION TITRE */
+
+.gallery-title {
+    opacity: 0;
+    transform: translateY(20px);
+
+    animation: fadeUp 1.2s ease forwards;
+}
+
+/* KEYFRAMES */
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 
@@ -1177,15 +1791,20 @@ background:#000;
    GRID GALERIE
    ================================================= */
 
-.gallery-grid{
+.gallery-grid {
+    margin-top: 200px;
+    /* espace sous le titre */
+}
 
-    display:grid;
+.gallery-grid {
 
-    grid-template-columns:repeat(4,1fr);
+    display: grid;
 
-    grid-auto-rows:300px;
+    grid-template-columns: repeat(4, 1fr);
 
-    gap:14px;
+    grid-auto-rows: 300px;
+
+    gap: 14px;
 
 }
 
@@ -1197,26 +1816,26 @@ background:#000;
 
 /* grande image */
 
-.img-large{
+.img-large {
 
-    grid-column:span 2;
-    grid-row:span 2;
+    grid-column: span 2;
+    grid-row: span 2;
 
 }
 
 /* image verticale */
 
-.img-vertical{
+.img-vertical {
 
-    grid-row:span 2;
+    grid-row: span 2;
 
 }
 
 /* image horizontale */
 
-.img-horizontal{
+.img-horizontal {
 
-    grid-column:span 2;
+    grid-column: span 2;
 
 }
 
@@ -1226,11 +1845,12 @@ background:#000;
    TEXTE IMAGE
    ================================================= */
 
-.gallery-item{
+.gallery-item {
 
-    position:relative; /* permet de placer le texte dessus */
+    position: relative;
+    /* permet de placer le texte dessus */
 
-    overflow:hidden;
+    overflow: hidden;
 
 }
 
@@ -1240,16 +1860,16 @@ background:#000;
    IMAGE
    ================================================= */
 
-.gallery-item img{
+.gallery-item img {
 
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
 
-    object-fit:cover;
+    object-fit: cover;
 
-    filter:grayscale(100%);
+    filter: grayscale(100%);
 
-    transition:0.6s;
+    transition: 0.6s;
 
 }
 
@@ -1259,11 +1879,11 @@ background:#000;
    SURVOL IMAGE
    ================================================= */
 
-.gallery-item:hover img{
+.gallery-item:hover img {
 
-    transform:scale(1.08);
+    transform: scale(1.08);
 
-    filter:grayscale(0);
+    filter: grayscale(0);
 
 }
 
@@ -1273,32 +1893,32 @@ background:#000;
    SURVOL TEXTE
    ================================================= */
 
-.gallery-hover{
+.gallery-hover {
 
-    position:absolute;
+    position: absolute;
 
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
 
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
 
-    background:rgba(0,0,0,0.65);
+    background: rgba(0, 0, 0, 0.65);
 
-    display:flex;
+    display: flex;
 
-    flex-direction:column;
+    flex-direction: column;
 
-    justify-content:center;
-    align-items:center;
+    justify-content: center;
+    align-items: center;
 
-    text-align:center;
+    text-align: center;
 
-    opacity:0;
+    opacity: 0;
 
-    transition:0.4s;
+    transition: 0.4s;
 
-    padding:20px;
+    padding: 20px;
 
 }
 
@@ -1306,9 +1926,9 @@ background:#000;
 
 /* apparition du texte */
 
-.gallery-item:hover .gallery-hover{
+.gallery-item:hover .gallery-hover {
 
-    opacity:1;
+    opacity: 1;
 
 }
 
@@ -1318,21 +1938,21 @@ background:#000;
    TEXTE SUR IMAGE
    ================================================= */
 
-.gallery-hover h3{
+.gallery-hover h3 {
 
-    letter-spacing:0.2em;
+    letter-spacing: 0.2em;
 
-    margin-bottom:8px;
+    margin-bottom: 8px;
 
-    color:var(--gold);
+    color: var(--gold);
 
 }
 
-.gallery-hover p{
+.gallery-hover p {
 
-    font-size:0.9rem;
+    font-size: 0.9rem;
 
-    color:rgba(255,255,255,0.85);
+    color: rgba(255, 255, 255, 0.85);
 
 }
 
@@ -1342,67 +1962,495 @@ background:#000;
 LIGHTBOX
 ================================================= */
 
-.lightbox{
+.lightbox {
 
-position:fixed;
-top:0;
-left:0;
+    position: fixed;
+    top: 0;
+    left: 0;
 
-width:100%;
-height:100%;
+    width: 100%;
+    height: 100%;
 
-background:rgba(0,0,0,0.95);
+    background: rgba(0, 0, 0, 0.95);
 
-display:flex;
-flex-direction:column;
+    display: flex;
+    flex-direction: column;
 
-justify-content:center;
-align-items:center;
+    justify-content: center;
+    align-items: center;
 
-opacity:0;
+    opacity: 0;
 
-pointer-events:none;
+    pointer-events: none;
 
-transition:0.3s;
+    transition: 0.3s;
 
-z-index:999;
-
-}
-
-.lightbox img{
-
-max-width:85%;
-max-height:75vh;
-
-margin-bottom:20px;
+    z-index: 999;
 
 }
 
-.lightbox p{
+.lightbox img {
 
-color:white;
+    max-width: 85%;
+    max-height: 75vh;
 
-}
-
-.lightbox-close{
-
-position:absolute;
-
-top:40px;
-right:60px;
-
-font-size:3rem;
-
-color:white;
-
-text-decoration:none;
+    margin-bottom: 20px;
 
 }
 
-.lightbox:target{
+.lightbox p {
 
-opacity:1;
+    color: white;
 
-pointer-events:auto;
+}
+
+.lightbox-close {
+
+    position: absolute;
+
+    top: 40px;
+    right: 60px;
+
+    font-size: 3rem;
+
+    color: white;
+
+    text-decoration: none;
+
+}
+
+.lightbox:target {
+
+    opacity: 1;
+
+    pointer-events: auto;
+
+}
+
+/* =================================================
+CONTACT galery
+================================================= */
+.cta h2 {
+    font-weight: 200;
+    letter-spacing: 0.25em;
+}
+
+.cta p {
+    font-weight: 200;
+    letter-spacing: 0.1em;
+}
+
+.cta-btn {
+    font-weight: 300;
+    letter-spacing: 0.2em;
+}
+
+.cta {
+    padding: 100px 20px;
+    text-align: center;
+    background: #000;
+}
+
+.cta-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cta h2 {
+    color: var(--gold);
+    letter-spacing: 0.25em;
+    margin-bottom: 20px;
+}
+
+.cta p {
+    color: #aaa;
+    margin-bottom: 40px;
+}
+
+/* BOUTON CTA */
+
+.cta-btn {
+    display: inline-block;
+    padding: 14px 40px;
+
+    border: 1px solid var(--gold);
+    color: var(--gold);
+
+    text-decoration: none;
+    letter-spacing: 0.2em;
+    font-size: 12px;
+
+    transition: all 0.3s ease;
+}
+
+/* HOVER */
+
+.cta-btn:hover {
+    background: var(--gold);
+    color: #000;
+}
+
+/* =================================================
+FOOTER 
+================================================= */
+
+.footer {
+    background: #000;
+    margin-top: 200px;
+    /* espace avec le bloc au-dessus */
+    padding: 40px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* conteneur centré */
+.footer-inline {
+    display: flex;
+    justify-content: center;
+}
+
+/* texte */
+.footer-text {
+    color: #777;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    line-height: 1;
+    /* évite les décalages */
+    text-align: center;
+}
+
+body h1 {
+    margin-top: 140px
+}
+
+
+/* =========================================================================================================
+   PAGE ARTISTS
+========================================================================================================= */
+
+
+.artists-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* carte artiste */
+
+.artist {
+    text-align: center;
+}
+
+/* image */
+
+.artist img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* nom */
+
+.artist h2 {
+    color: #fff;
+    letter-spacing: 0.25em;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+/* style */
+
+.artist h3 {
+    color: var(--gold);
+    font-weight: 200;
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
+}
+
+/* description */
+
+.artist p {
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.artists-hero {
+    background: #000;
+    text-align: center;
+    padding: 280px 20px 40px;
+}
+
+.artists-hero h1 {
+    margin: 0;
+    color: #fff;
+    letter-spacing: 0.3em;
+    font-weight: 200;
+    line-height: 1.1;
+}
+
+.artists-hero span {
+    color: var(--gold);
+}
+
+@media (max-width: 768px) {
+
+    /* RESPONSIVE */
+.artists-container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+}
+
+.artist p {
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.6;
+
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* =================================================
+TITLE
+================================================= */
+
+.artists-title {
+    text-align: center;
+    color: white;
+    letter-spacing: 0.3em;
+    font-weight: 200;
+    margin: 120px 0 80px;
+}
+
+.artists-title span {
+    color: var(--gold);
+}
+/* =================================================
+DUO SECTION
+================================================= */
+
+.artists-duo {
+    position: relative;
+    height: 100vh;
+    background: url("images/duo.webp") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.artists-duo {
+    margin-top: 300px;
+}
+
+/* overlay sombre */
+
+.duo-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+/* texte au centre */
+
+.duo-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.duo-content p {
+    color: white;
+    font-size: 25px;
+    letter-spacing: 0.2em;
+    font-weight: 200;
+}
+
+/* =================================================
+BOOK TATTOO
+================================================= */
+
+.artists-cta {
+    text-align: center;
+    padding: 200px 20px 100px;
+    background: black;
+    margin-bottom: 150px;
+}
+
+.artists-cta h2 {
+    color: white;
+    letter-spacing: 0.3em;
+    font-weight: 200;
+    margin-bottom: 40px;
+}
+
+.artists-cta span {
+    color: var(--gold);
+}
+
+/* bouton */
+
+.cta-button {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 0.2em;
+    padding: 12px 30px;
+    border: 1px solid var(--gold);
+    transition: 0.3s ease;
+}
+
+.cta-button:hover {
+    background: var(--gold);
+    color: black;
+}
+
+/* =================================================
+FOOTER
+================================================= */
+
+.site-footer {
+    margin-top: 120px;
+    /* espace avec le bloc du dessus */
+    padding-bottom: 40px;
+}
+
+/* ligne fine au dessus */
+
+.footer-line {
+    width: 90%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 0 auto 40px;
+}
+
+/* contenu */
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+
+    color: #777;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+}
+
+/* logo */
+
+.footer-logo {
+    color: var(--gold);
+    letter-spacing: 0.3em;
+}
+
+/* responsive */
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+
+/* =========================
+   PAGE TRANSITION CLEAN
+========================= */
+
+.page-transition {
+    position: fixed;
+    inset: 0;
+    background: black;
+    z-index: 99999;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 0.4s ease;
+}
+
+.page-transition.active {
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+/* =================================================
+RESPONSIVE GLOBAL (AJOUT)
+================================================= */
+
+/* TABLETTE */
+@media (max-width: 1024px) {
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .artists-wrapper {
+        flex-direction: column;
+    }
+
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    /* NAV */
+    .main-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* HERO */
+    .hero-intro {
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .hero-intro h1 {
+        font-size: 2rem;
+    }
+
+    /* GALLERY */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* ARTISTS */
+    .artist-panel {
+        position: relative;
+        width: 100%;
+        padding: 30px 20px;
+    }
+
+    /* CONTACT */
+    .contact-container {
+        flex-direction: column;
+    }
+
+}
+
+/* PETITS ÉCRANS */
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
 
 }
